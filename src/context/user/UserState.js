@@ -11,12 +11,13 @@ const UserState = (props) => {
 	const [state, dispatch] = useReducer(UserReducer, initialState);
 
 	const printUser = (text) => {
-		console.log("user");
+		console.log(text);
 		dispatch({ type: SEARCH_USER, payload: text });
 	};
 
 	return (
-		<UserContext.Provider value={{ user: state.user }}>
+		<UserContext.Provider
+			value={{ user: state.user, filtered: state.filtered, printUser }}>
 			{props.children}
 		</UserContext.Provider>
 	);

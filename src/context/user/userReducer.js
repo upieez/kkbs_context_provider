@@ -6,8 +6,10 @@ export default (state, action) => {
 			return {
 				...state,
 				filtered: state.user.filter((user) => {
-					const regex = new RegExp(`${action.payload.text}`, "gi");
-					return user.name.match(regex);
+					// const regex = new RegExp(`${action.payload.text}`, "gi");
+					// return user.name.match(regex);
+
+					return user.name === action.payload;
 				}),
 			};
 
